@@ -1,6 +1,6 @@
 # File Organizer Script
 
-This Python script organizes files in your Downloads folder and Desktop into separate folders based on their types such as Images, PDFs, Screenshots, and Other.
+This Python script organizes files in your Downloads folder and Desktop into separate folders based on their types such as Images, Documents, PDFs, Screenshots, and Other.
 
 ## How to Use
 
