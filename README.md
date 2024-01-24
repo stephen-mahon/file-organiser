@@ -27,7 +27,7 @@ destination_folder = Path.home() / 'OrganizedFiles'
 4. Run the script.
 
 ```bash
-python organizer.py
+python main.py
 ```
 
 The script will organize files from the Downloads folder and Desktop into the specified destination folder.
