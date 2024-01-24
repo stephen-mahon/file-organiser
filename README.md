@@ -21,7 +21,7 @@ cd file-organiser
 ```python
 downloads_folder = Path.home() / 'Downloads'
 desktop_folder = Path.home() / 'Desktop'
-destination_folder = Path.home() / 'OrganizedFiles'
+destination_folder = Path.home() / 'Documents'
 ```
 
 4. Run the script.
@@ -49,6 +49,22 @@ else:
     shutil.move(file_path, os.path.join(destination_folder, "Other", filename))
 ```
 
+## To Do
+
+### Testing
+- Unit tests
+- Integration tests
+- Edge case tests
+- File type cases
+- Customisation tests
+- Performace tests
+- Error handling tests
+- Cross platform tests
+
+### UI
+Create a nice user interface.
+
+
 ## Licence
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
