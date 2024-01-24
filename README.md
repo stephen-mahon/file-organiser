@@ -34,7 +34,7 @@ The script will organize files from the Downloads folder and Desktop into the sp
 
 ## Customisation
 
-You can customize the script by modifying the file types and folder names in the `organize.py` file under the `move_files` function.
+You can customize the script by modifying the file types and folder names in the `organise.py` file under the `move_files` function.
 
 ```python
 if filename.lower().startswith("screen shot"):
