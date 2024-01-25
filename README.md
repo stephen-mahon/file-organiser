@@ -29,16 +29,12 @@ This command will organise files from your Desktop and Downloads folders into se
 You can customize the script by modifying the file types and folder names in the `organise.py` file under the `move_files` function.
 
 ```python
-if filename.lower().startswith("screen shot"):
-    destination= os.path.join(destination_folder, "Screenshots", filename)
-elif filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
-    destination = os.path.join(destination_folder, "Images", filename)
-elif filename.lower().endswith((".doc", ".docx", ".xlsx", ".ppt", ".txt")):
-    destination = os.path.join(destination_folder, "Documents", filename)
-elif filename.lower().endswith(".pdf"):
-    destination = os.path.join(destination_folder, "PDFs", filename)
-else:
-    destination = os.path.join(destination_folder, "Other", filename)
+pattern_destination = {
+    r"^screen\s?shot": "Screenshots",
+    r"\.(png|jpg|jpeg|gif)$": "Images",
+    r"\.pdf$": "PDFs",
+    r"\.(doc.?|xls.?|ppt.?|txt)": "Documents",
+}
 ```
 
 ## To Do
