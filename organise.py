@@ -39,7 +39,7 @@ def move_files(source_folder, destination):
                 break
         
         if not matched:
-            destination_path = os.path.join(destination, destination_folder, filename)
+            destination_path = os.path.join(destination, "Other", filename)
             log(f"moving {file_path} to {destination_path}")
             shutil.move(file_path, destination_path)
 
