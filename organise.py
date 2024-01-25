@@ -1,12 +1,22 @@
 import logging
 import os
+import re
 import shutil
 
-def move_files(source_folder, destination_folder):
+def move_files(source_folder, destination):
     # create destination folders if they don't already exist
     for folder in ["Images", "PDFs", "Screenshots", "Documents", "Other"]:
-        folder_path = os.path.join(destination_folder, folder)
+        folder_path = os.path.join(destination, folder)
         os.makedirs(folder_path, exist_ok = True)
+
+    # define the file patterns and their corresponding destination dictionary
+    pattern_destination = {
+        r"^screen\s?shot": "Screenshots",
+        r"\.(png|jpg|jpeg|gif)$": "Images",
+        r"\.pdf$": "PDFs",
+        r"\.(doc.?|xls.?|ppt.?|txt)": "Documents",
+    }
+
 
     # loop through all the files in the source folder
     for filename in os.listdir(source_folder):
@@ -16,23 +26,22 @@ def move_files(source_folder, destination_folder):
         if os.path.isdir(file_path):
             continue
 
-        # define the destination folder
-        if filename.lower().startswith("screen shot"):
-            destination= os.path.join(destination_folder, "Screenshots", filename)
-        elif filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
-            destination = os.path.join(destination_folder, "Images", filename)
-        elif filename.lower().endswith((".doc", ".docx", ".xlsx", ".ppt", ".txt")):
-            destination = os.path.join(destination_folder, "Documents", filename)
-        elif filename.lower().endswith(".pdf"):
-            destination = os.path.join(destination_folder, "PDFs", filename)
-        else:
-            destination = os.path.join(destination_folder, "Other", filename)
+        matched = False
 
-        # log the file move
-        log(f"moving {file_path} to {destination}")
-
-        # move file to appropriate folder
-        shutil.move(file_path, destination)
+        # determine the file type using the regex pattern
+        for pattern, destination_folder in pattern_destination.items():
+            if re.search(pattern, filename, re.IGNORECASE):
+                destination_path = os.path.join(destination, destination_folder, filename)
+                # log the file move
+                log(f"moving {file_path} to {destination_path}")
+                shutil.move(file_path, destination_path)
+                matched = True
+                break
+        
+        if not matched:
+            destination_path = os.path.join(destination, destination_folder, filename)
+            log(f"moving {file_path} to {destination_path}")
+            shutil.move(file_path, destination_path)
 
 
 # basic logger for tracking file changes
