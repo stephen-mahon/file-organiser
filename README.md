@@ -22,7 +22,7 @@ cd file-organiser
 python file-organiser.py Desktop Downloads
 ```
 
-This command will organise files from your Desktop and Downloads folders into separate destination folders based on their types into the a Documents destination folder.
+Files from your Desktop and Downloads folders will be organised into separate destination folders in Documents based on their types.
 
 ## Customisation
 
