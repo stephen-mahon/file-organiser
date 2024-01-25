@@ -58,7 +58,7 @@ else:
 
 - Better docstrings for `move_files` function. Change the arguments from string to paths
 - Better customisation for target destination folders (Images, PDFs, Screenshots, etc)
-- Regex pattern matching for destination folder to simplify loop
+- ~~Regex pattern matching for destination folder to simplify loop~~
 - Option to move subfolders
 
 ### UI
