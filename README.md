@@ -7,7 +7,7 @@ This Python script organizes files in your Downloads folder and Desktop into sep
 1. Clone or download the repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/file-organiser.git
+git clone https://github.com/stephen-mahon/file-organiser.git
 ```
 
 2. Navigate to the project folder.
@@ -16,21 +16,13 @@ git clone https://github.com/yourusername/file-organiser.git
 cd file-organiser
 ```
 
-3. Edit the script (organizer.py) to set the correct paths for your Downloads folder, Desktop, and the destination folder where you want to organize the files.
-
-```python
-downloads_folder = Path.home() / 'Downloads'
-desktop_folder = Path.home() / 'Desktop'
-destination_folder = Path.home() / 'Documents'
-```
-
-4. Run the script.
+3. Run the script with the source folders from your Home directory as command-line arguments. For example, to organise the Desktop and Downloads folders:
 
 ```bash
-python main.py
+python file-organiser.py Desktop Downloads
 ```
 
-The script will organize files from the Downloads folder and Desktop into the specified destination folder.
+This command will organise files from your Desktop and Downloads folders into separate destination folders based on their types into the a Documents destination folder.
 
 ## Customisation
 
@@ -38,20 +30,21 @@ You can customize the script by modifying the file types and folder names in the
 
 ```python
 if filename.lower().startswith("screen shot"):
-    shutil.move(file_path, os.path.join(destination_folder, "Screenshots", filename))
+    destination= os.path.join(destination_folder, "Screenshots", filename)
 elif filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
-    shutil.move(file_path, os.path.join(destination_folder, "Images", filename))
+    destination = os.path.join(destination_folder, "Images", filename)
 elif filename.lower().endswith((".doc", ".docx", ".xlsx", ".ppt", ".txt")):
-    shutil.move(file_path, os.path.join(destination_folder, "Documents", filename))
+    destination = os.path.join(destination_folder, "Documents", filename)
 elif filename.lower().endswith(".pdf"):
-    shutil.move(file_path, os.path.join(destination_folder, "PDFs", filename))
+    destination = os.path.join(destination_folder, "PDFs", filename)
 else:
-    shutil.move(file_path, os.path.join(destination_folder, "Other", filename))
+    destination = os.path.join(destination_folder, "Other", filename)
 ```
 
 ## To Do
 
 ### Testing
+
 - Unit tests
 - Integration tests
 - Edge case tests
@@ -61,9 +54,16 @@ else:
 - Error handling tests
 - Cross platform tests
 
-### UI
-Create a nice user interface.
+### `organise.py`
 
+- Better docstrings for `move_files` function. Change the arguments from string to paths
+- Better customisation for target destination folders (Images, PDFs, Screenshots, etc)
+- Regex pattern matching for destination folder to simplify loop
+- Option to move subfolders
+
+### UI
+
+Create a nice user interface.
 
 ## Licence
 
