@@ -22,7 +22,7 @@ cd file-organiser
 python file-organiser.py Desktop Downloads
 ```
 
-This command will organise files from your Desktop and Downloads folders into separate destination folders based on their types into the a Documents destination folder.
+Files from your Desktop and Downloads folders will be organised into separate destination folders in Documents based on their types.
 
 ## Customisation
 
@@ -54,7 +54,7 @@ pattern_destination = {
 
 - Better docstrings for `move_files` function. Change the arguments from string to paths
 - Better customisation for target destination folders (Images, PDFs, Screenshots, etc)
-- Regex pattern matching for destination folder to simplify loop
+- ~~Regex pattern matching for destination folder to simplify loop~~
 - Option to move subfolders
 
 ### UI
