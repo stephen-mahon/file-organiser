@@ -1,13 +1,13 @@
 # File Organizer Script
 
-This Python script organizes files in your Downloads folder and Desktop into separate folders based on their types such as Images, Documents, PDFs, Screenshots, and Other.
+This Python script organizes files in your Downloads folder and Desktop into separate folders based on their types, such as Images, Documents, PDFs, Screenshots, and Other.
 
 ## How to Use
 
 1. Clone or download the repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/file-organiser.git
+git clone https://github.com/stephen-mahon/file-organiser.git
 ```
 
 2. Navigate to the project folder.
@@ -57,9 +57,9 @@ else:
 - Edge case tests
 - File type cases
 - Customisation tests
-- Performace tests
+- Performance tests
 - Error handling tests
-- Cross platform tests
+- Cross-platform tests
 
 ### UI
 Create a nice user interface.
